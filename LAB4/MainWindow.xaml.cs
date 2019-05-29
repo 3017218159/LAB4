@@ -182,13 +182,20 @@ namespace LAB4
             {
                 if (!port.IsOpen)
                 {
-                    port = new SerialPort(cbb1.SelectedItem.ToString());//连接串口
-                    port.BaudRate = int.Parse(cbb2.SelectedItem.ToString());//设置波特率
-                    port.ReceivedBytesThreshold = 1;
-                    port.DataReceived += new SerialDataReceivedEventHandler(Receive_Data);
-                    port.Open();
+                    try
+                    {
+                        port = new SerialPort(cbb1.SelectedItem.ToString());//连接串口
+                        port.BaudRate = int.Parse(cbb2.SelectedItem.ToString());//设置波特率
+                        port.ReceivedBytesThreshold = 1;
+                        port.DataReceived += new SerialDataReceivedEventHandler(Receive_Data);
+                        port.Open();
 
-                    System.Windows.MessageBox.Show("串口已连接");
+                        System.Windows.MessageBox.Show("串口已连接");
+                    }
+                    catch(Exception ex)
+                    {
+                        System.Windows.MessageBox.Show(ex.Message);
+                    }
                 }
             }
             else
