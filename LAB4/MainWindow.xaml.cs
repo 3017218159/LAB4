@@ -303,7 +303,7 @@ namespace LAB4
             }
         }
 
-        private void Btn5_Click(object sender, RoutedEventArgs e)
+        private void Btn5_Click(object sender, RoutedEventArgs e)//log结束
         {
             if (isRecord)
             {
